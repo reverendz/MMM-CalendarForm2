@@ -1,4 +1,4 @@
-Module.register("MMM-CalendarForm", {
+Module.register("MMM-CalendarForm2", {
     defaults: {
         calendarPath: "/path/to/your/specific/calendar.ics",
         keyboardModule: "MMM-Keyboard" // Specify the keyboard module
