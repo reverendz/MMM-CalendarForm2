@@ -1,0 +1,57 @@
+.calendar-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.calendar-form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.calendar-form input,
+.calendar-form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.calendar-form button {
+    margin: 10px 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+}
+
+.calendar-form button:hover {
+    background-color: #0056b3;
+}
+
+.calendar-form button:active {
+    background-color: #003f8c;
+}
+
+.calendar-form button:nth-child(2) {
+    background-color: #dc3545;
+}
+
+.calendar-form button:nth-child(2):hover {
+    background-color: #b52a38;
+}
