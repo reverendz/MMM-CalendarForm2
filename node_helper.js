@@ -5,7 +5,7 @@ const NodeHelper = require("node_helper");
 
 module.exports = NodeHelper.create({
     start: function () {
-        console.log("MMM-CalendarForm helper started...");
+        console.log("MMM-CalendarForm2 helper started...");
     },
 
     socketNotificationReceived: function (notification, payload) {
