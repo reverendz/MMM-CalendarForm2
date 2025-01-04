@@ -5,10 +5,10 @@ Example configuration.
 
 ```js
 {
-    module: "MMM-CalendarForm",
-    position: "top_right", // Adjust based on your preferred placement
+    module: "MMM-CalendarForm2",
+    position: "top_right",
     config: {
-        calendarPath: "/path/to/your/calendar.ics", // Path to your specific .ics file
+        calendarPath: "/path/to/your/specific/calendar.ics",  // Adjust based on your preferred placement
         keyboardModule: "MMM-Keyboard" // Module name for on-screen keyboard integration
     }
 },
@@ -41,7 +41,7 @@ Example configuration.
             }
         ]
     }
-}
+},
 ```
 
 **Key Points in the Configuration**
