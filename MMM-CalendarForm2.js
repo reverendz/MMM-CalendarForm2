@@ -11,12 +11,14 @@ Module.register("MMM-CalendarForm2", {
     },
 
     notificationReceived(notification, payload, sender) {
-        Log.info("MMM-CalendarForm2 received notification:", notification);
+        //Log.info("MMM-CalendarForm2 received notification:", notification);
+        Log.info(`MMM-CalendarForm2: Received notification: ${notification}`);
+        Log.info(`MMM-CalendarForm2: Payload: ${JSON.stringify(payload)}`);
 
         if (notification === "addEvent") {
-            Log.info("Showing form on addEvent notification.");
-            this.showForm();
-        }
+        Log.info("MMM-CalendarForm2: Showing form on addEvent notification.");
+        this.showForm();
+    }
     },
 
     showForm() {
