@@ -57,7 +57,7 @@ Module.register("MMM-CalendarForm2", {
         titleInput.id = "eventTitle";
         titleInput.addEventListener("focus", () => {
             Log.info("Title input focused, sending notification to keyboard.");
-            this.sendNotification("KEYBOARD_INPUT", { inputId: "eventTitle" });
+            this.sendNotification("KEYBOARD", { inputId: "eventTitle", key: "uniqueKey", }, style: "default");
         });
         formContainer.appendChild(titleInput);
 
@@ -91,7 +91,7 @@ Module.register("MMM-CalendarForm2", {
         descriptionInput.id = "eventDescription";
         descriptionInput.addEventListener("focus", () => {
             Log.info("Description input focused, sending notification to keyboard.");
-            this.sendNotification("KEYBOARD_INPUT", { inputId: "eventDescription" });
+            this.sendNotification("KEYBOARD", { inputId: "eventDescription", key: "uniqueKey"}, style: "default");
         });
         formContainer.appendChild(descriptionInput);
 
