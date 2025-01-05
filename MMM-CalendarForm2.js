@@ -1,33 +1,39 @@
 Module.register("MMM-CalendarForm2", {
     defaults: {
         calendarPath: "/path/to/your/specific/calendar.ics",
-        keyboardModule: "MMM-Keyboard" // Specify the keyboard module
+        keyboardModule: "MMM-Keyboard" // Specify the keyboard module for on-screen keyboard integration
     },
 
     start() {
         Log.info("Starting module: " + this.name);
         this.formVisible = false; // Form is hidden by default
-        this.sendSocketNotification("SET_CONFIG", this.config);
+        this.sendSocketNotification("SET_CONFIG", this.config); // Send configuration to node_helper
     },
 
     notificationReceived(notification, payload, sender) {
+        Log.info("MMM-CalendarForm2 received notification:", notification);
+
         if (notification === "addEvent") {
+            Log.info("Showing form on addEvent notification.");
             this.showForm();
         }
     },
 
     showForm() {
+        Log.info("MMM-CalendarForm2: showForm called, setting formVisible to true.");
         this.formVisible = true;
-        this.updateDom();
+        this.updateDom(0); // Force immediate DOM update
     },
 
     hideForm() {
+        Log.info("MMM-CalendarForm2: hideForm called, setting formVisible to false.");
         this.formVisible = false;
-        this.updateDom();
+        this.updateDom(0); // Force immediate DOM update
     },
 
     getDom() {
         const wrapper = document.createElement("div");
+        Log.info("MMM-CalendarForm2: Rendering DOM. formVisible =", this.formVisible);
 
         // Hide form if not visible
         if (!this.formVisible) {
@@ -50,7 +56,8 @@ Module.register("MMM-CalendarForm2", {
         titleInput.placeholder = "Event Title";
         titleInput.id = "eventTitle";
         titleInput.addEventListener("focus", () => {
-            this.sendNotification(this.config.keyboardModule, { inputId: "eventTitle" });
+            Log.info("Title input focused, sending notification to keyboard.");
+            this.sendNotification("KEYBOARD_INPUT", { inputId: "eventTitle" });
         });
         formContainer.appendChild(titleInput);
 
@@ -83,7 +90,8 @@ Module.register("MMM-CalendarForm2", {
         descriptionInput.placeholder = "Event Description";
         descriptionInput.id = "eventDescription";
         descriptionInput.addEventListener("focus", () => {
-            this.sendNotification(this.config.keyboardModule, { inputId: "eventDescription" });
+            Log.info("Description input focused, sending notification to keyboard.");
+            this.sendNotification("KEYBOARD_INPUT", { inputId: "eventDescription" });
         });
         formContainer.appendChild(descriptionInput);
 
